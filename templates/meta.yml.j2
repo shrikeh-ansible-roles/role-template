@@ -1,0 +1,28 @@
+---
+galaxy_info:
+  author: {{ role_author }}
+  description: {{ role_description }}
+  company: {{ role_company }}
+  license: MIT
+  min_ansible_version: {{ role_ansible_verion | default('1.9') }}
+  platforms:
+  {% for platform in role_platforms %}
+    - name: {{ platform.name }}
+      versions:
+      {% for version in platform.versions %}
+        - {{ version }}
+      {% endfor %}
+  {% endfor %}
+  categories:
+  {% for category in role_categories %}
+    - {{ category }}
+  {% endfor %}
+  {% if role_dependencies is defined %}
+  dependencies:
+    {% for dependency in role_dependencies %}
+    - {{ dependency }}
+    {% endfor %}
+  {% else %}
+  dependencies: []
+  {% endif %}
+...

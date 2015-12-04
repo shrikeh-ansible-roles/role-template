@@ -1,5 +1,32 @@
 ---
-role_template_main_yml: 'main.yml'
+role_templates:
+  readme:
+    template: 'README.md.j2'
+    path:     "{{ role_dir_path }}/README.md"
+  license:
+    template: 'LICENSE.j2'
+    path:     "{{ role_dir_path }}/LICENSE"
+  meta:
+    template: 'meta.yml.j2'
+    path:     "{{ role_dir_path }}/meta/main.yml"
+  defaults:
+    template: 'main.yml.j2'
+    path:     "{{ role_dir_path }}/defaults/main.yml"
+  requirements:
+    template: 'requirements.txt.j2'
+    path:     "{{ role_dir_path }}/requirements.txt"
+  gitignore:
+    template: 'gitignore.j2'
+    path:     "{{ role_dir_path }}/.gitignore"
+  gitattrbutes:
+    template: 'gitattrbutes.j2'
+    path:     "{{ role_dir_path }}/.gitattrbutes"
+  editorconfig:
+    template: 'editorconfig.j2'
+    path:     "{{ role_dir_path }}/.editorconfig"
+  travis:
+    template: 'travis.yml.j2'
+    path:     "{{ role_dir_path }}/.travis.yml"
 
 role_author: Barney Hanlon
 role_company: B H Hanlon Ventures Ltd.
@@ -46,6 +73,11 @@ role_markdown_links:
   stargazers:
     uri:    "{{ role_github_uri }}"
     body:   "Github stargazers"
+
+role_test_inventory_entries:
+  - name: travis
+    hosts:
+      - 'localhost ansible_connection=local ansible_python_interpreter=python'
 
 role_pip_requirements:
   - ansible

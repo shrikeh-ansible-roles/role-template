@@ -1,25 +1,25 @@
 ---
-- name: Create the repo directory
+- name: Create the repo directories
   file:
     state: directory
-    path: "{{ role_dir_path }}"
+    path: "{{ item }}"
     owner: "{{ role_dir_owner | default(omit) }}"
     group: "{{ role_dir_group | default(omit) }}"
     mode: "{{ role_dir_mode | default(omit) }}"
+  with_items:
+    - "{{ role_dir_path }}"
+    - "{{ role_dir_path }}/defaults"
+    - "{{ role_dir_path }}/meta"
+    - "{{ role_dir_path }}/test"
 
-- name: Create the defaults directory
-  file:
-    state: directory
-    path: "{{ role_dir_path }}/defaults"
-    owner: "{{ role_dir_owner | default(omit) }}"
-    group: "{{ role_dir_group | default(omit) }}"
-    mode: "{{ role_dir_mode | default(omit) }}"
-
-- name: Copy the main.yml template into position for defaults
+- name: Put in the default template files
   template:
-    src: "{{ role_template_main_yml }}"
-    dest: "{{ role_dir_path }}/defaults"
+    src: "{{ item.value.template }}"
+    dest: "{{ item.value.path}}"
     owner: "{{ role_dir_owner | default(omit) }}"
     group: "{{ role_dir_group | default(omit) }}"
     mode: "{{ role_dir_mode | default(omit) }}"
+  with_dict: role_templates
+
+
 ...
