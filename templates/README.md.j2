@@ -1,0 +1,39 @@
+# {{ role_name }}
+
+[![Galaxy]({{ role_galaxy_svg_uri }})][galaxy]
+[![Build Status]({{ role_travis_svg_uri }})][build]
+[![GitHub Stars]({{ role_stargazers_svg_uri }})][stargazers]
+
+[Ansible][ansible] role to
+
+## Requirements
+
+None.
+
+## Role Variables
+
+## Dependencies
+
+None.
+
+## Example Playbook
+
+```YAML
+---
+- hosts: servers
+  roles:
+    - {{ role_galaxy_slug }}
+...
+```
+
+## License
+
+[MIT][licence]
+
+## Author Information
+
+Contact me on Twitter @[barney_hanlon][twitter].
+
+{% for key, link in role_markdown_links.iteritems() %}
+[{{ key }}]: {{ link.uri }} "{{ link.body }}"
+{% endfor %}

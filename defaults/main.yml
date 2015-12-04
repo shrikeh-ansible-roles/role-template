@@ -1,0 +1,52 @@
+---
+role_template_main_yml: 'main.yml'
+
+role_author: Barney Hanlon
+role_company: B H Hanlon Ventures Ltd.
+
+role_galaxy_slug: "shrikeh.{{ role_github_repo_name | regex_replace('^ansible-', '') }}"
+role_repo_slug: "{{ role_github_user | mandatory }}/{{ role_github_repo_name | mandatory }}"
+
+role_galaxy_svg_uri: "http://img.shields.io/badge/galaxy-{{ role_galaxy_slug }}-blue.svg"
+role_travis_svg_uri: "https://img.shields.io/travis/{{ role_repo_slug }}.svg"
+role_stargazers_svg_uri: "https://img.shields.io/github/stars/{{ role_repo_slug }}.svg"
+
+role_ansible_uri:           "http://www.ansible.com/"
+role_build_status_uri:      "https://travis-ci.org/{{ role_repo_slug }}"
+role_galaxy_role_uri:       "https://galaxy.ansible.com/list#/roles/{{ role_id | mandatory }}"
+role_vault_docs_uri:        "http://docs.ansible.com/ansible/playbooks_vault.html"
+role_licence_uri:           "https://raw.githubusercontent.com/{{ role_repo_slug }}/master/LICENSE"
+role_twitter_uri:           "https://twitter.com/barney_hanlon"
+role_github_uri:            "https://github.com/{{ role_repo_slug }}"
+role_github_stargazers_uri: "https://github.com/{{ role_repo_slug }}/stargazers"
+
+
+role_markdown_links:
+  ansible:
+    uri:    "{{ role_ansible_uri }}"
+    body:   "Ansible home page"
+  galaxy:
+    uri:    "{{ role_galaxy_role_uri }}"
+    body:   "Ansible Galaxy"
+  vault:
+    uri:    "{{ role_vault_docs_uri }}"
+    body:   "Ansible Vault documentation"
+  build:
+    uri:    "{{ role_build_status_uri }}"
+    body:   "Build status on Travis"
+  licence:
+    uri:    "{{ role_licence_uri }}"
+    body:   "Link to the license in the repository"
+  twitter:
+    uri:    "{{ role_twitter_uri }}"
+    body:   "Link to my Twitter page"
+  github:
+    uri:    "{{ role_github_uri }}"
+    body:   "{{ role_name }} on Github"
+  stargazers:
+    uri:    "{{ role_github_uri }}"
+    body:   "Github stargazers"
+
+role_pip_requirements:
+  - ansible
+...
