@@ -36,6 +36,7 @@ role_repo_slug: "{{ role_github_user | mandatory }}/{{ role_github_repo_name | m
 
 role_galaxy_svg_uri: "http://img.shields.io/badge/galaxy-{{ role_galaxy_slug }}-blue.svg"
 role_travis_svg_uri: "https://img.shields.io/travis/{{ role_repo_slug }}.svg"
+role_license_svg_uri: "https://img.shields.io/github/license/{{ role_repo_slug }}.svg"
 role_stargazers_svg_uri: "https://img.shields.io/github/stars/{{ role_repo_slug }}.svg"
 
 role_ansible_uri:           "http://www.ansible.com/"
