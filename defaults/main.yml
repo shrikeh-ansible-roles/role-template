@@ -2,31 +2,31 @@
 role_templates:
   readme:
     template: 'README.md.j2'
-    path:     "{{ role_dir_path }}/README.md"
+    path:     "{{ role_dir_path | mandatory }}/README.md"
   license:
     template: 'LICENSE.j2'
-    path:     "{{ role_dir_path }}/LICENSE"
+    path:     "{{ role_dir_path | mandatory }}/LICENSE"
   meta:
     template: 'meta.yml.j2'
-    path:     "{{ role_dir_path }}/meta/main.yml"
+    path:     "{{ role_dir_path | mandatory }}/meta/main.yml"
   defaults:
     template: 'main.yml.j2'
-    path:     "{{ role_dir_path }}/defaults/main.yml"
+    path:     "{{ role_dir_path | mandatory }}/defaults/main.yml"
   requirements:
     template: 'requirements.txt.j2'
-    path:     "{{ role_dir_path }}/requirements.txt"
+    path:     "{{ role_dir_path | mandatory }}/requirements.txt"
   gitignore:
     template: 'gitignore.j2'
-    path:     "{{ role_dir_path }}/.gitignore"
+    path:     "{{ role_dir_path | mandatory }}/.gitignore"
   gitattrbutes:
     template: 'gitattrbutes.j2'
-    path:     "{{ role_dir_path }}/.gitattrbutes"
+    path:     "{{ role_dir_path | mandatory }}/.gitattrbutes"
   editorconfig:
     template: 'editorconfig.j2'
-    path:     "{{ role_dir_path }}/.editorconfig"
+    path:     "{{ role_dir_path | mandatory }}/.editorconfig"
   travis:
     template: 'travis.yml.j2'
-    path:     "{{ role_dir_path }}/.travis.yml"
+    path:     "{{ role_dir_path | mandatory }}/.travis.yml"
 
 role_author: Barney Hanlon
 role_company: B H Hanlon Ventures Ltd.
@@ -47,7 +47,6 @@ role_licence_uri:           "https://raw.githubusercontent.com/{{ role_repo_slug
 role_twitter_uri:           "https://twitter.com/barney_hanlon"
 role_github_uri:            "https://github.com/{{ role_repo_slug }}"
 role_github_stargazers_uri: "https://github.com/{{ role_repo_slug }}/stargazers"
-
 
 role_markdown_links:
   ansible:

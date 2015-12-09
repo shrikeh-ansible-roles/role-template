@@ -7,10 +7,10 @@
     group: "{{ role_dir_group | default(omit) }}"
     mode: "{{ role_dir_mode | default(omit) }}"
   with_items:
-    - "{{ role_dir_path }}"
-    - "{{ role_dir_path }}/defaults"
-    - "{{ role_dir_path }}/meta"
-    - "{{ role_dir_path }}/test"
+    - "{{ role_dir_path | mandatory }}"
+    - "{{ role_dir_path | mandatory }}/defaults"
+    - "{{ role_dir_path | mandatory }}/meta"
+    - "{{ role_dir_path | mandatory }}/test"
 
 - name: Put in the default template files
   template:
