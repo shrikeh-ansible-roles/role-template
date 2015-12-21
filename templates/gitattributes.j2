@@ -1,7 +1,6 @@
 *      text=auto
 *.bat  eol=crlf
 
-/test export-ignore
-.* export-ignore
-README.md export-ignore
-requirements.txt export-ignore
+{% for ignore in role_exports_ignore %}
+{{ ignore }} export-ignore
+{% endfor %}

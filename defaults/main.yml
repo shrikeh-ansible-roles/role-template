@@ -81,4 +81,10 @@ role_test_inventory_entries:
 
 role_pip_requirements:
   - ansible
+
+role_exports_ignore:
+  - '/test'
+  - '.*'
+  - 'README.md'
+  - 'requirements.txt'
 ...
